@@ -1,2 +1,2 @@
-import"./assets/modulepreload-polyfill-ec808ebb.js";document.querySelector(".feedback-form");
+import"./assets/modulepreload-polyfill-ec808ebb.js";const s="feedback-form-state",a=document.querySelector(".feedback-form");a.addEventListener("submit",c);function c(e){e.preventDefault();const t=e.target.elements.email.value,o=e.target.elements.message.value,n={useremail:t,text:o};console.log(n),m(s,n)}function m(e,t){const o=JSON.stringify(t);localStorage.setItem(e,o)}
 //# sourceMappingURL=commonHelpers2.js.map
