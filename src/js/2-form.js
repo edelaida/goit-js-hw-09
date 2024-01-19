@@ -1,8 +1,8 @@
  
 // feedback - form - state
  
-// const form = document.querySelector(".feedback-form");
-// const localStorageKey = "goit-example-message";
+const form = document.querySelector(".feedback-form");
+const localStorageKey = "goit-example-message";
 
 // form.elements.message.value = localStorage.getItem(localStorageKey) ?? "";
 
