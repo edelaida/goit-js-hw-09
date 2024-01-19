@@ -1,17 +1,22 @@
- 
-// feedback - form - state
- 
-const form = document.querySelector(".feedback-form");
-const localStorageKey = "goit-example-message";
+ const STR_KEY = "feedback-form-state"
+const form = document.querySelector('.feedback-form');
 
-// form.elements.message.value = localStorage.getItem(localStorageKey) ?? "";
+form.addEventListener('submit', onFormSubmit);
 
-// form.addEventListener("input", (evt) => {
-//   localStorage.setItem(localStorageKey, evt.target.value);
-// });
+function onFormSubmit(e) {
+    e.preventDefault();
+    const useremail = e.target.elements.email.value;
+    const text = e.target.elements.message.value;
+    const data = { useremail, text };
+         console.log(data);
+     saveToLs(STR_KEY, data);
+}
 
-// form.addEventListener("submit", (evt) => {
-//   evt.preventDefault();
-//   localStorage.removeItem(localStorageKey);
-//   form.reset();
-// });
+function saveToLs(key, value) {
+    const zip = JSON.stringify(value);
+    localStorage.setItem(key, zip);
+}
+function loadFromLS(key) {
+    const zip = localStorage.getItem(key);
+    const data = JSON.parse(zip);
+}
