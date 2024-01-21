@@ -1,3 +1,47 @@
 .feedback-form {
-    
+    display: inline-flex;
+    width: 408px;
+    height: 296px;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    border-radius: 8px;
+    border: 1px solid black;
 }
+label {
+  display: flex;
+  flex-direction: column;
+ align-items: flex-start;
+    gap: 8px
+}
+input {
+    width: 360px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+textarea {
+    width: 360px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+     resize: none;
+    overflow: auto;
+}
+button {
+    display: flex;
+    padding: 8px 16px;
+    width: 95px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    background: #4E75FF;
+
+    color: #FFF;
+     font-weight: 500;
+        
+    }

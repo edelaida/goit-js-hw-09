@@ -1,22 +1,44 @@
- const STR_KEY = "feedback-form-state"
-const form = document.querySelector('.feedback-form');
 
-form.addEventListener('submit', onFormSubmit);
+ const formRead = document.querySelector(".feedback-form");
+const STR_KEY = "feedback-form-state"
+  
+formRead.addEventListener("input", onFormInput);
+formRead.addEventListener("submit", onFormSubmit);
 
+function onFormInput(e) { 
+  const useremail = formRead.elements.email.value;
+  const usermessage = formRead.elements.message.value;
+  
+  const strForm = {
+    formEmail: useremail,
+    formMessage: usermessage,
+    }    
+  localStorage.setItem(STR_KEY, JSON.stringify(strForm));   
+    }
+    
 function onFormSubmit(e) {
-    e.preventDefault();
-    const useremail = e.target.elements.email.value;
-    const text = e.target.elements.message.value;
-    const data = { useremail, text };
-         console.log(data);
-     saveToLs(STR_KEY, data);
+  e.preventDefault(); 
+  const useremail = e.target.elements.email.value;
+  const usermessage = e.target.elements.message.value;
+  const strForm = {
+   formEmail: useremail,
+   formMessage: usermessage,
+  }
+   
+  if (!useremail || !usermessage) return alert(`All form fields must be filled in`);
+    
+  localStorage.removeItem(STR_KEY);
+  console.log(strForm);
+      formRead.reset();
+} 
+    
+function LocalStorage() {
+  const storageValue = localStorage.getItem(STR_KEY);
+  const parseKey = JSON.parse(storageValue);
+  
+      if (storageValue) {
+        formRead.email.value = parseKey.formEmail;
+        formRead.message.value = parseKey.formMessage;
+    };
 }
-
-function saveToLs(key, value) {
-    const zip = JSON.stringify(value);
-    localStorage.setItem(key, zip);
-}
-function loadFromLS(key) {
-    const zip = localStorage.getItem(key);
-    const data = JSON.parse(zip);
-}
+LocalStorage();
