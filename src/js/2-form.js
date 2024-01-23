@@ -1,13 +1,13 @@
 
- const formRead = document.querySelector(".feedback-form");
+const formRead = document.querySelector(".feedback-form");
 const STR_KEY = "feedback-form-state"
   
 formRead.addEventListener("input", onFormInput);
 formRead.addEventListener("submit", onFormSubmit);
 
 function onFormInput(e) { 
-  const useremail = formRead.elements.email.value;
-  const usermessage = formRead.elements.message.value;
+  const useremail = formRead.elements.email.value.trim();
+  const usermessage = formRead.elements.message.value.trim();
   
   const strForm = {
     formEmail: useremail,
@@ -18,8 +18,8 @@ function onFormInput(e) {
     
 function onFormSubmit(e) {
   e.preventDefault(); 
-  const useremail = e.target.elements.email.value;
-  const usermessage = e.target.elements.message.value;
+  const useremail = e.target.elements.email.value.trim();
+  const usermessage = e.target.elements.message.value.trim();
   const strForm = {
    formEmail: useremail,
    formMessage: usermessage,
